@@ -25,3 +25,8 @@ func (pq *PriorityQueue) Dequeue() globals.Item {
 func (pq *PriorityQueue) Look() {
 	fmt.Printf("%v\n", pq.heap.Arr)
 }
+
+// IsEmpty : returns true if the current queue is empty, false otherwise
+func (pq *PriorityQueue) IsEmpty() bool {
+	return len(pq.heap.Arr) == 0
+}
