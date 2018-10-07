@@ -8,11 +8,11 @@ import (
 
 func main() {
 	queue := new(pq.PriorityQueue)
-	queue.Enqueue(globals.Item{4, "job1"})
-	queue.Enqueue(globals.Item{3, "job2"})
+	queue.Enqueue(globals.Item{Pri: 4, Key: "job1"})
+	queue.Enqueue(globals.Item{Pri: 3, Key: "job2"})
 	queue.Dequeue()
-	queue.Enqueue(globals.Item{0, "job3"})
-	queue.Enqueue(globals.Item{1, "job4"})
+	queue.Enqueue(globals.Item{Pri: 0, Key: "job3"})
+	queue.Enqueue(globals.Item{Pri: 1, Key: "job4"})
 	queue.Dequeue()
 
 	fmt.Printf("%v\n", queue.Dequeue().Key)
