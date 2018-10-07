@@ -2,31 +2,20 @@ package main
 
 import (
 	"fmt"
-	"heap"
+	"globals"
+	"pq"
 )
 
 func main() {
-	var l = []int{4, 8, 9, 1, 2, 5, 7, 6, 3, 0}
-	// fmt.Printf("%v\n", l)
+	queue := new(pq.PriorityQueue)
+	queue.Enqueue(globals.Item{4, "job1"})
+	queue.Enqueue(globals.Item{3, "job2"})
+	queue.Dequeue()
+	queue.Enqueue(globals.Item{0, "job3"})
+	queue.Enqueue(globals.Item{1, "job4"})
+	queue.Dequeue()
 
-	// var h = new(heap.Heap)
-
-	// heap.BuildHeap(l)
-	// fmt.Printf("%v\n", l)
-	// fmt.Printf("%v\n", heap.Pop(l))
-	// fmt.Printf("%v\n", l)
-
-	h := new(heap.Heap)
-	h.BuildHeap(l)
-
-	h.Look()
-	h.Pop()
-	h.Look()
-
-	heap.Sort(l)
-
-	fmt.Printf("%v\n", l)
-
-	// fmt.Printf("%v\n", l)
+	fmt.Printf("%v\n", queue.Dequeue().Key)
+	fmt.Printf("%v\n", queue.Dequeue().Key)
 
 }

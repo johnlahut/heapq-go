@@ -1,8 +1,27 @@
 package pq
 
-import "fmt"
+import (
+	"fmt"
+	"globals"
+	"heap"
+)
 
-func HelloFromQueue() {
-	fmt.Printf("%v\n", "Hello from Queue!")
+// PriorityQueue : Implements Heap for data structure
+type PriorityQueue struct {
+	heap heap.Heap
+}
 
+// Enqueue : enqueue the passed in element
+func (pq *PriorityQueue) Enqueue(item globals.Item) {
+	pq.heap.Push(item)
+}
+
+// Dequeue : removes the highest priority element, returning to caller
+func (pq *PriorityQueue) Dequeue() globals.Item {
+	return pq.heap.Pop()
+}
+
+// Look : prints the current state of the queue to the caller
+func (pq *PriorityQueue) Look() {
+	fmt.Printf("%v\n", pq.heap.Arr)
 }
